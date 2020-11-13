@@ -21,7 +21,7 @@
     npx create-react-app react-three-fiber-introduction
     cd react-three-fiber-introduction
   ```
-  * Install three and react-three-fiber and start the app.
+  * Install three, react-three-fiber, use-cannon, and then start the app.
   ```bash
     npm install three react-three-fiber use-cannon
     npm start
