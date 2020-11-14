@@ -1,70 +1,82 @@
-# Getting Started with Create React App
+# Introduction to React Three Fiber
+![Preview](/public/getting_started.png)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 1. Setup
 
-## Available Scripts
+* **What is react-three-fiber?**
+  * [react-three-fiber](https://github.com/pmndrs/react-three-fiber) is a React renderer for [threejs](https://threejs.org/) on the web and react-native*.
+    * Gives more semantic layout and assumes reasonable defaults, making it easy to get up and running quickly with less code.
+  * Use-cases:
+    * Rendering graphics in the browser with React or on mobile and web with React Native*.
 
-In the project directory, you can run:
+*Limited documentation on react-native see https://github.com/pmndrs/react-three-fiber/blob/master/markdown/recipes.md#usage-with-react-native.
 
-### `yarn start`
+* **Prerequisites**
+  * React, JavaScript, HTML, CSS
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+* **Environment**
+  * [Node](https://nodejs.org/) >= v10.14.2 and [npm](https://www.npmjs.com/) >= v5.6
+  * [Create React app](https://reactjs.org/docs/create-a-new-react-app.html)
+  ```bash
+    npx create-react-app react-three-fiber-introduction
+    cd react-three-fiber-introduction
+  ```
+  * Install [three](https://threejs.org/docs/index.html#manual/en/introduction/Installation), [react-three-fiber](https://github.com/pmndrs/react-three-fiber#react-three-fiber), [use-cannon](https://www.npmjs.com/package/use-cannon), and then start the app.
+  ```bash
+    npm install three react-three-fiber use-cannon
+    npm start
+  ```
+  * Versions used in this project:
+  ```bash
+    "dependencies": {
+      "react": "^17.0.1",
+      "react-dom": "^17.0.1",
+      "react-scripts": "^4.0.0",
+      "react-three-fiber": "^5.1.5",
+      "three": "^0.122.0",
+      "use-cannon": "^0.5.3",
+    }
+  ```
+* **Assets**
+  * .gltf files from [sketchfab](https://sketchfab.com/).
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `yarn test`
+## 2. Getting Started
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* **Setting the Scene**
+  * [The scene graph](https://threejsfundamentals.org/threejs/lessons/threejs-fundamentals.html).
+  * Manual setup with [threejs](https://threejs.org/docs/index.html#manual/en/introduction/Creating-a-scene).
+  * [Canvas](https://github.com/pmndrs/react-three-fiber/blob/master/markdown/api.md#canvas)
+  * [AxesHelper](https://threejs.org/docs/index.html#api/en/helpers/AxesHelper)
+  * [Geometry](https://threejs.org/docs/index.html#api/en/core/Geometry)
+  * [Lines](https://threejs.org/docs/index.html#manual/en/introduction/Drawing-lines)
+  * Lights
+    * [Ambient Light](https://threejs.org/docs/index.html#api/en/lights/AmbientLight)
+    * [Pointlight helper](https://threejs.org/docs/index.html#api/en/helpers/PointLightHelper)
+  * [Material/Mesh]
+    * Light sensitivity, color, texture, opacity, emissive, transmissive, metal, reflective, clearcoat
+  * [background](https://threejsfundamentals.org/threejs/lessons/threejs-backgrounds.html)
+    * [Scene.background](https://threejs.org/docs/index.html#api/en/scenes/Scene.background)
+    * [CubeTextureLoader](https://threejs.org/docs/index.html#api/en/loaders/CubeTextureLoader)
+    * [WebGLCubeRenderTarget.fromEquirectangularTexture](https://threejs.org/docs/index.html#api/en/renderers/WebGLCubeRenderTarget.fromEquirectangularTexture)
+  * [animation](https://github.com/pmndrs/react-three-fiber/blob/master/markdown/api.md#hooks)
+    * useThree(), useFrame(() => {}), camera
+    * [performance pitfalls](https://github.com/pmndrs/react-three-fiber/blob/master/markdown/pitfalls.md)
 
-### `yarn build`
+## 3. Interaction and Physics
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* **Controls**
+  * extend
+  * Orbit controls
+  * Events
+	* Dragcontrols
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+* **Physics**
+  * use-cannon https://github.com/pmndrs/use-cannon
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 4. Putting it all together
 
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+* Other things students can try on their own
+  * Using Assets
+  * Soft-shadows
+  * postprocessing
