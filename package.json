@@ -9,6 +9,9 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.0",
+    "react-three-fiber": "^5.1.5",
+    "three": "^0.122.0",
+    "use-cannon": "^0.5.3",
     "web-vitals": "^0.2.4"
   },
   "scripts": {
