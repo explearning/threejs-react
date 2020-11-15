@@ -15,7 +15,7 @@
   * React, JavaScript, HTML, CSS
 
 * **Environment**
-  * [Node](https://nodejs.org/) >= v10.14.2 and [npm](https://www.npmjs.com/) >= v5.6
+  * [Node](https://nodejs.org/) >= v8.10 and [npm](https://www.npmjs.com/) >= v5.6
   * [Create React app](https://reactjs.org/docs/create-a-new-react-app.html)
   ```bash
     npx create-react-app react-three-fiber-introduction
