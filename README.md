@@ -45,6 +45,7 @@
 
 * **Setting the Scene**
   * [The scene graph](https://threejsfundamentals.org/threejs/lessons/threejs-fundamentals.html).
+    * [Object3D]https://threejs.org/docs/#api/en/core/Object3D.
   * Manual setup with [threejs](https://threejs.org/docs/index.html#manual/en/introduction/Creating-a-scene).
   * [Canvas](https://github.com/pmndrs/react-three-fiber/blob/master/markdown/api.md#canvas)
   * [AxesHelper](https://threejs.org/docs/index.html#api/en/helpers/AxesHelper)
