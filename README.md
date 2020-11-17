@@ -48,6 +48,9 @@
     * [Object3D](https://threejs.org/docs/#api/en/core/Object3D)
   * Manual setup with [threejs](https://threejs.org/docs/index.html#manual/en/introduction/Creating-a-scene).
   * [Canvas](https://github.com/pmndrs/react-three-fiber/blob/master/markdown/api.md#canvas)
+  * [animation](https://github.com/pmndrs/react-three-fiber/blob/master/markdown/api.md#hooks)
+    * useThree(), useFrame(() => {}), camera
+    * [performance pitfalls](https://github.com/pmndrs/react-three-fiber/blob/master/markdown/pitfalls.md)
   * [AxesHelper](https://threejs.org/docs/index.html#api/en/helpers/AxesHelper)
   * [Geometry](https://threejs.org/docs/index.html#api/en/core/Geometry)
   * [Lines](https://threejs.org/docs/index.html#manual/en/introduction/Drawing-lines)
@@ -60,9 +63,7 @@
     * [Scene.background](https://threejs.org/docs/index.html#api/en/scenes/Scene.background)
     * [CubeTextureLoader](https://threejs.org/docs/index.html#api/en/loaders/CubeTextureLoader)
     * [WebGLCubeRenderTarget.fromEquirectangularTexture](https://threejs.org/docs/index.html#api/en/renderers/WebGLCubeRenderTarget.fromEquirectangularTexture)
-  * [animation](https://github.com/pmndrs/react-three-fiber/blob/master/markdown/api.md#hooks)
-    * useThree(), useFrame(() => {}), camera
-    * [performance pitfalls](https://github.com/pmndrs/react-three-fiber/blob/master/markdown/pitfalls.md)
+  
 
 ## 3. Interaction and Physics
 
