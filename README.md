@@ -52,6 +52,8 @@
     * useThree(), useFrame(() => {}), camera
     * [performance pitfalls](https://github.com/pmndrs/react-three-fiber/blob/master/markdown/pitfalls.md)
   * [AxesHelper](https://threejs.org/docs/index.html#api/en/helpers/AxesHelper)
+  * Orbit controls
+    * extend
   * [Geometry](https://threejs.org/docs/index.html#api/en/core/Geometry)
   * [Lines](https://threejs.org/docs/index.html#manual/en/introduction/Drawing-lines)
   * Lights
@@ -68,8 +70,6 @@
 ## 3. Interaction and Physics
 
 * **Controls**
-  * extend
-  * Orbit controls
   * Events
 	* Dragcontrols
 
