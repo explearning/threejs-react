@@ -5,6 +5,7 @@ import { useRef } from 'react';
 import { 
   OrbitControls 
 } from 'three/examples/jsm/controls/OrbitControls';
+import * as THREE from 'three';
 extend({ OrbitControls });
 
 const Orbit = () => {
@@ -36,9 +37,27 @@ function App() {
         style={{background: 'black'}} 
         camera={{ position: [3,3,3] }}
       >
-        <Box position={[-1,1,2]}/>
         <Orbit />
         <axesHelper args={[5]}/>
+        <Box position={[-1,1,2]}/>
+        <mesh>
+          <meshBasicMaterial side={THREE.DoubleSide}/>
+          <geometry >
+            <face3
+              args={[0,1,2]}
+              attachArray='faces' 
+            />
+            <vector3 
+              args={[0,1,1]}
+              attachArray='vertices'
+            />
+            <vector3 attachArray='vertices'/>
+            <vector3 
+              args={[0,1,-1]}
+              attachArray='vertices'
+            />
+          </geometry>
+        </mesh>
       </Canvas>
     </div>
   );
