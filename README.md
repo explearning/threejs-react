@@ -60,8 +60,11 @@
     * [Ambient Light](https://threejs.org/docs/index.html#api/en/lights/AmbientLight)
     * [Pointlight helper](https://threejs.org/docs/index.html#api/en/helpers/PointLightHelper)
   * [Material/Mesh]
-    * Light sensitivity, color, texture, opacity, emissive, transmissive, metal, reflective, clearcoat
-  * [background](https://threejsfundamentals.org/threejs/lessons/threejs-backgrounds.html)
+    * Material: Color, Side, shadowSide, Fog, Transparent, Opacity, Visible.
+    * MeshStandardMaterial: Emissive & emissiveIntensity, wireframe, metalness, roughness.
+    * MeshPhysicalMaterial: transmissive, reflective, clearcoat.
+  * Texture.
+    * [background](https://threejsfundamentals.org/threejs/lessons/threejs-backgrounds.html)
     * [Scene.background](https://threejs.org/docs/index.html#api/en/scenes/Scene.background)
     * [CubeTextureLoader](https://threejs.org/docs/index.html#api/en/loaders/CubeTextureLoader)
     * [WebGLCubeRenderTarget.fromEquirectangularTexture](https://threejs.org/docs/index.html#api/en/renderers/WebGLCubeRenderTarget.fromEquirectangularTexture)
