@@ -19,6 +19,7 @@ const Box = props => {
   const ref = useRef();
   useFrame(state => {
     ref.current.rotation.y += 0.01;
+    ref.current.rotation.x += 0.01;
   });
   
   return(
@@ -26,7 +27,7 @@ const Box = props => {
       ref={ref} 
       {...props} 
       castShadow 
-      receiveShadow
+      // receiveShadow
     >
       <boxBufferGeometry />
       <meshPhysicalMaterial 
@@ -37,6 +38,7 @@ const Box = props => {
         clearcoat={1}
         transmission={0.5}
         reflectivity={1}
+        side={THREE.DoubleSide}
       />
     </mesh>
   )
