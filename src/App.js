@@ -18,7 +18,6 @@ const Orbit = () => {
 const Box = props => {
   const ref = useRef();
   useFrame(state => {
-    ref.current.rotation.x += 0.01;
     ref.current.rotation.y += 0.01;
   });
   
@@ -30,7 +29,15 @@ const Box = props => {
       receiveShadow
     >
       <boxBufferGeometry />
-      <meshPhysicalMaterial color='blue' />
+      <meshPhysicalMaterial 
+        color='white' 
+        transparent
+        // metalness={1}
+        roughness={0}
+        clearcoat={1}
+        transmission={0.5}
+        reflectivity={1}
+      />
     </mesh>
   )
 }
@@ -60,13 +67,14 @@ function App() {
       <Canvas 
         shadowMap
         style={{background: 'black'}} 
-        camera={{ position: [3,3,3] }}
+        camera={{ position: [1,5,1] }}
       >
+        {/* <fog attach='fog' args={['white', 1, 10]}/> */}
         <ambientLight intensity={0.2}/>
         <Bulb position={[0,3,0]}/>
         <Orbit />
         <axesHelper args={[5]}/>
-        <Box position={[-1,1,2]}/>
+        <Box position={[0,1,0]}/>
         <Floor position={[0,-0.5,0]}/>
       </Canvas>
     </div>
