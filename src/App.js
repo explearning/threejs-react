@@ -1,7 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
-import { Canvas, useFrame, useThree, extend } from 'react-three-fiber';
-import { useRef } from 'react';
+import { 
+  Canvas, 
+  useFrame, 
+  useThree, 
+  extend,
+  useLoader
+} from 'react-three-fiber';
+import { useRef, Suspense } from 'react';
 import { 
   OrbitControls 
 } from 'three/examples/jsm/controls/OrbitControls';
@@ -17,6 +23,10 @@ const Orbit = () => {
 
 const Box = props => {
   const ref = useRef();
+  const texture = useLoader(
+    THREE.TextureLoader, 
+    '/wood.jpg'
+  );
   useFrame(state => {
     ref.current.rotation.y += 0.01;
     ref.current.rotation.x += 0.01;
@@ -29,18 +39,31 @@ const Box = props => {
       castShadow 
       // receiveShadow
     >
-      <boxBufferGeometry />
+      <sphereBufferGeometry args={[1,100,100]}/>
       <meshPhysicalMaterial 
-        color='white' 
-        transparent
-        // metalness={1}
-        roughness={0}
-        clearcoat={1}
-        transmission={0.5}
-        reflectivity={1}
-        side={THREE.DoubleSide}
+        map={texture}
       />
     </mesh>
+  )
+}
+
+const Background = props => {
+  const texture = useLoader(
+    THREE.TextureLoader, 
+    '/autoshop.jpg'
+  );
+
+  const { gl } = useThree();
+
+  const formatted = new THREE.WebGLCubeRenderTarget(
+    texture.image.height
+  ).fromEquirectangularTexture(gl, texture)
+
+  return (
+    <primitive 
+      attach='background' 
+      object={formatted}
+    />
   )
 }
 
@@ -69,14 +92,18 @@ function App() {
       <Canvas 
         shadowMap
         style={{background: 'black'}} 
-        camera={{ position: [1,5,1] }}
+        camera={{ position: [3,3,3] }}
       >
-        {/* <fog attach='fog' args={['white', 1, 10]}/> */}
         <ambientLight intensity={0.2}/>
         <Bulb position={[0,3,0]}/>
         <Orbit />
         <axesHelper args={[5]}/>
-        <Box position={[0,1,0]}/>
+        <Suspense fallback={null}>
+          <Box position={[0,1,0]}/>
+        </Suspense>
+        <Suspense fallback={null}>
+          <Background />
+        </Suspense>
         <Floor position={[0,-0.5,0]}/>
       </Canvas>
     </div>
