@@ -11,6 +11,7 @@ import Floor from './components/Floor';
 import Bulb from './components/Bulb';
 import Dragable from './components/Dragable';
 import ColorPicker from './components/ColorPicker';
+import Model from './components/Model';
 
 function App() {
   return (
@@ -27,11 +28,17 @@ function App() {
         <Physics>
           <Dragable>
             <Bulb position={[0,3,0]}/>
-            <Suspense fallback={null}>
-              <Box position={[-4,1,0]}/>
-            </Suspense>
-            <Suspense fallback={null}>
-              <Box position={[4,1,0]}/>
+            <Suspense fallback={null} >
+              <Model 
+                path='/tesla_model_3/scene.gltf'
+                scale={new Array(3).fill(0.01)}
+                position={[4,0.6,0]}
+              />
+              <Model 
+                path='/tesla_model_s/scene.gltf'
+                scale={new Array(3).fill(0.013)}
+                position={[-4,0.2,0]}
+              />
             </Suspense>
           </Dragable>
           <Suspense fallback={null}>
