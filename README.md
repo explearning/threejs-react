@@ -83,6 +83,7 @@
 
 * Other things students can try on their own
   * Using Assets
+  * Bounding Box (for physics debugging)
   * Soft-shadows
   * postprocessing
   * Animations
