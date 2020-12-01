@@ -12,7 +12,7 @@ const Model = props => {
     return (
         <primitive 
             object={model.scene}
-            {...props}
+            scale={props.scale}
         />
     )
 }

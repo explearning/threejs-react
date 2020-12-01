@@ -12,6 +12,7 @@ import Bulb from './components/Bulb';
 import Dragable from './components/Dragable';
 import ColorPicker from './components/ColorPicker';
 import Model from './components/Model';
+import BoundingBox from './components/BoundingBox'
 
 function App() {
   return (
@@ -25,22 +26,34 @@ function App() {
         <ambientLight intensity={0.2}/>
         <Orbit />
         <axesHelper args={[5]}/>
+        <Bulb position={[0,3,0]}/>
         <Physics>
-          <Dragable>
-            <Bulb position={[0,3,0]}/>
             <Suspense fallback={null} >
-              <Model 
-                path='/tesla_model_3/scene.gltf'
-                scale={new Array(3).fill(0.01)}
-                position={[4,0.6,0]}
-              />
-              <Model 
-                path='/tesla_model_s/scene.gltf'
-                scale={new Array(3).fill(0.013)}
-                position={[-4,0.2,0]}
-              />
-            </Suspense>
-          </Dragable>
+              <Dragable transformGroup>
+                <BoundingBox 
+                  position={[4,4,0]}
+                  dims={[3,2,6]}
+                  offset={[0,-0.4,0.8]}
+                >
+                  <Model 
+                    path='/tesla_model_3/scene.gltf'
+                    scale={new Array(3).fill(0.01)}
+                  />
+                </BoundingBox>
+              </Dragable>
+              <Dragable transformGroup>
+                <BoundingBox 
+                  position={[-4,4,0]}
+                  dims={[3,2,7]}
+                  offset={[0, -0.8,0.2]}
+                >
+                  <Model 
+                    path='/tesla_model_s/scene.gltf'
+                    scale={new Array(3).fill(0.013)}
+                  />
+                </BoundingBox>
+            </Dragable>
+          </Suspense>
           <Suspense fallback={null}>
             <Background />
           </Suspense>
