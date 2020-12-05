@@ -14,6 +14,7 @@ import Cars from './components/Cars'
 import CameraControls from './components/CameraControls'
 import CameraButtons from './components/CameraButtons'
 import state from './state'
+
 function App() {
   return (
     <div style={{height: '100vh', width: '100vw'}}>
@@ -29,6 +30,14 @@ function App() {
         </Suspense>
         <CameraControls state={state}/>
         <ambientLight intensity={0.2}/>
+        <directionalLight 
+          shadow-mapSize-height={2**10}
+          shadow-mapSize-width={2**10}
+          shadow-radius={10}
+          position={[6,3,0]}
+          intensity={2}
+          castShadow
+        />
         <Orbit />
         <axesHelper args={[5]}/>
         <Bulb position={[-6,3,0]}/>
