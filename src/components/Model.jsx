@@ -7,7 +7,7 @@ import * as THREE from 'three'
 const Model = props => {
     const model = useLoader(
         GLTFLoader,
-        process.env.PUBLIC_URL + props.path
+        props.path
     )
 
     model.scene.traverse(child => {
