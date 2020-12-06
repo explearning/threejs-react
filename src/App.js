@@ -14,6 +14,11 @@ import Cars from './components/Cars'
 import CameraControls from './components/CameraControls'
 import CameraButtons from './components/CameraButtons'
 import Lights from './components/Lights'
+import { 
+  EffectComposer, 
+  DepthOfField,
+  Bloom
+} from 'react-postprocessing'
 import state from './state'
 
 function App() {
@@ -29,14 +34,26 @@ function App() {
         <Suspense fallback={null}>
           <Background />
         </Suspense>
-        <CameraControls state={state}/>
+        <CameraControls />
         <Lights/>
         <Orbit />
-        <axesHelper args={[5]}/>
         <Physics>
           <Cars />
           <Floor position={[0,-0.5,0]}/>
         </Physics>
+        <EffectComposer>
+          <DepthOfField 
+            focusDistance={0} 
+            focalLength={0.02} 
+            bokehScale={2} 
+            height={480}
+          />
+          <Bloom 
+            luminanceThreshold={1} 
+            luminanceSmoothing={0.9} 
+            height={300}
+          />
+        </EffectComposer>
       </Canvas>
     </div>
   );

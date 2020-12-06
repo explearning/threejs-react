@@ -18,6 +18,7 @@ const style = {
 }
 
 const CameraButtons = ({}) => {
+
     const sets = {
         // model_3
         1: {
