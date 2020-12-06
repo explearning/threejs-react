@@ -13,6 +13,7 @@ import ColorPicker from './components/ColorPicker';
 import Cars from './components/Cars'
 import CameraControls from './components/CameraControls'
 import CameraButtons from './components/CameraButtons'
+import Lights from './components/Lights'
 import state from './state'
 
 function App() {
@@ -29,20 +30,9 @@ function App() {
           <Background />
         </Suspense>
         <CameraControls state={state}/>
-        <ambientLight intensity={0.2}/>
-        <directionalLight 
-          shadow-mapSize-height={2**10}
-          shadow-mapSize-width={2**10}
-          shadow-radius={10}
-          position={[6,3,0]}
-          intensity={2}
-          castShadow
-        />
+        <Lights/>
         <Orbit />
         <axesHelper args={[5]}/>
-        <Bulb position={[-6,3,0]}/>
-        <Bulb position={[0,3,0]}/>
-        <Bulb position={[6,3,0]}/>
         <Physics>
           <Cars />
           <Floor position={[0,-0.5,0]}/>
