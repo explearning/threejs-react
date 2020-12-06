@@ -14,7 +14,6 @@ import Cars from './components/Cars'
 import CameraControls from './components/CameraControls'
 import CameraButtons from './components/CameraButtons'
 import Lights from './components/Lights'
-import Effects from './components/Effects'
 import { 
   EffectComposer, 
   DepthOfField,
@@ -28,29 +27,33 @@ function App() {
       <ColorPicker />
       <CameraButtons />
       <Canvas 
-        gl={{
-          powerPreference: "high-performance",
-          antialias: false,
-          stencil: false,
-          depth: false
-        }}
         shadowMap
         style={{background: 'black'}} 
         camera={{ position: [7,7,7] }}
       >
-        <CameraControls />
         <Suspense fallback={null}>
           <Background />
         </Suspense>
+        <CameraControls />
         <Lights/>
         <Orbit />
         <Physics>
           <Cars />
           <Floor position={[0,-0.5,0]}/>
         </Physics>
-        <Suspense fallback={null}>
-          <Effects />
-        </Suspense>
+        <EffectComposer>
+          <DepthOfField 
+            focusDistance={0} 
+            focalLength={0.02} 
+            bokehScale={2} 
+            height={480}
+          />
+          <Bloom 
+            luminanceThreshold={1} 
+            luminanceSmoothing={0.9} 
+            height={300}
+          />
+        </EffectComposer>
       </Canvas>
     </div>
   );
