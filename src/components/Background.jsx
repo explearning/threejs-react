@@ -5,7 +5,7 @@ import { useMemo } from 'react';
 const Background = props => {
     const texture = useLoader(
         THREE.TextureLoader,
-        '/autoshop.jpg'
+        process.env.PUBLIC_URL + '/autoshop.jpg'
     );
 
     const { gl } = useThree();

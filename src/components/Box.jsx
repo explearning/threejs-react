@@ -8,7 +8,7 @@ const Box = props => {
 
     const texture = useLoader(
         THREE.TextureLoader,
-        '/wood.jpg'
+        process.env.PUBLIC_URL + '/wood.jpg'
     );
 
     const handlePointerDown = e => {
