@@ -2,6 +2,7 @@ import { Suspense } from 'react'
 import BoundingBox from './BoundingBox'
 import Model from './Model'
 import Dragable from './Dragable'
+import * as THREE from 'three';
 
 const Cars = ({ }) => {
     return (
@@ -30,12 +31,24 @@ const Cars = ({ }) => {
                     />
                 </BoundingBox>
             </Dragable>
-            <group rotation={[0,Math.PI,0]}>
-                <Model 
-                    path='/mech_drone/scene.gltf'
-                    scale={new Array(3).fill(0.01)}
+            <Dragable transformGroup >
+                <Model
+                    path='/old_gramophone/scene.gltf'
+                    scale={new THREE.Vector3(.05, .05, .05)}
+                    position={[0, 0, 3]}
                 />
-            </group>
+            </Dragable>
+            <Dragable transformGroup>
+                <BoundingBox
+                    dims={[3, 2, 6]}
+                >
+                    <Model
+                        path='/spectral_rubix/scene.gltf'
+                        scale={new THREE.Vector3(.3, .3, .3)}
+                        position={[0, 1, -5]}
+                    />
+                </BoundingBox>
+            </Dragable>
         </Suspense>
     )
 }
