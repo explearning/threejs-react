@@ -1,15 +1,22 @@
 import * as THREE from 'three';
 import state from '../state'
 
+const sharedStyles = {
+    height: 50,
+    width: 50,
+    borderRadius: '50%',
+    cursor: 'pointer'
+};
+
 const ColorPicker = props => {
     const handleClick = e => {
         if (!state.activeMesh) return;
         state.activeMesh.material.color = new THREE.Color(e.target.style.background)
     }
     return (
-        <div 
-            style={{ 
-                position: 'absolute', 
+        <div
+            style={{
+                position: 'absolute',
                 zIndex: 1,
                 left: 0,
                 right: 0,
@@ -22,27 +29,31 @@ const ColorPicker = props => {
             <div
                 onClick={handleClick}
                 style={{
-                    background: 'blue',
-                    height: 50,
-                    width: 50
+                    background: 'rgb(30, 75, 93)',
+                    ...sharedStyles
                 }}
-            ></div>
+            />
             <div
                 onClick={handleClick}
                 style={{
-                    background: 'yellow',
-                    height: 50,
-                    width: 50
+                    background: 'red',
+                    ...sharedStyles
                 }}
-            ></div>
+            />
             <div
                 onClick={handleClick}
                 style={{
-                    background: 'white',
-                    height: 50,
-                    width: 50
+                    background: 'rgb(243, 246, 247)',
+                    ...sharedStyles
                 }}
-            ></div>
+            />
+            <div
+                onClick={handleClick}
+                style={{
+                    background: 'black',
+                    ...sharedStyles
+                }}
+            />
         </div>
     )
 }
