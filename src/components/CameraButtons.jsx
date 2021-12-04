@@ -3,16 +3,17 @@ import state from '../state'
 const style = {
     zIndex: 1,
     position: 'absolute',
-    bottom: '30vh',
-    // left: '40vw',
-    height: '30px',
-    width: '30px',
-    background: 'white',
-    textAlign: 'center',
-    borderRadius: '100%',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    bottom: '5vh',
+    height: '40px',
+    width: '40px',
+    backgroundColor: 'rgb(30, 75, 93)',
+    color: 'black',
+    borderRadius: '50%',
     fontSize: 20,
     fontWeight: 'bold',
-    opacity: 0.7,
     border: '1px solid black',
     cursor: 'pointer'
 }
@@ -41,7 +42,7 @@ const CameraButtons = ({}) => {
         state.shouldUpdate = true
     }
     return (
-        <> 
+        <>
             <button
                 onClick={e => handleClick(2)}
                 style={{
