@@ -27,6 +27,7 @@ const Draggable = props => {
         controlsRef.current.addEventListener(
             'dragstart',
             e => {
+                console.log(e.object);
                 e.object.api?.mass.set(0)
             }
         )

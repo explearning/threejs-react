@@ -13,7 +13,7 @@ const CameraControls = ({ }) => {
             camera.position.lerp(state.cameraPos,0.1)
             scene.orbitControls.target.lerp(state.target,0.1)
             scene.orbitControls.update()
-            const diff = 
+            const diff =
                 camera.position.clone()
                 .sub(state.cameraPos).length()
             if (diff < 0.1) state.shouldUpdate = false
