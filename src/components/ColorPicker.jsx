@@ -29,7 +29,14 @@ const ColorPicker = props => {
             <div
                 onClick={handleClick}
                 style={{
-                    background: 'rgb(30, 75, 93)',
+                    background: 'rgb(243, 246, 247)',
+                    ...sharedStyles
+                }}
+            />
+            <div
+                onClick={handleClick}
+                style={{
+                    background: 'black',
                     ...sharedStyles
                 }}
             />
@@ -43,14 +50,21 @@ const ColorPicker = props => {
             <div
                 onClick={handleClick}
                 style={{
-                    background: 'rgb(243, 246, 247)',
+                    background: 'rgb(30, 75, 93)',
                     ...sharedStyles
                 }}
             />
             <div
                 onClick={handleClick}
                 style={{
-                    background: 'black',
+                    background: '#000d89',
+                    ...sharedStyles
+                }}
+            />
+            <div
+                onClick={handleClick}
+                style={{
+                    background: '#175421',
                     ...sharedStyles
                 }}
             />
