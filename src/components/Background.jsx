@@ -13,7 +13,7 @@ const Background = props => {
         new THREE.WebGLCubeRenderTarget(
                 texture.image.height
         ).fromEquirectangularTexture(gl, texture)
-    ,[])
+    ,[gl, texture])
 
     return (
         <primitive

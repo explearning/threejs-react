@@ -1,6 +1,7 @@
+import { useEffect, useState } from 'react';
 import './App.css';
-import { 
-  Canvas
+import {
+    Canvas, useFrame
 } from 'react-three-fiber';
 import { Physics } from 'use-cannon';
 import { Suspense } from 'react';
@@ -14,13 +15,29 @@ import CameraControls from './components/CameraControls'
 import CameraButtons from './components/CameraButtons'
 import Lights from './components/Lights'
 import Effects from './components/Effects'
+import Spinner from "./components/Spinner";
 
 function App() {
+    const [windowDimensions, setWindowDimensions] = useState({
+        width: window.innerWidth,
+        height: window.innerHeight
+    });
+
+    useEffect(() => {
+        window.addEventListener('resize', handleResize);
+    }, [windowDimensions]);
+
+    const handleResize = () => {
+        setWindowDimensions({
+            width: window.innerWidth,
+            height: window.innerHeight
+        });
+    };
   return (
     <div style={{height: '100vh', width: '100vw'}}>
       <ColorPicker />
       <CameraButtons />
-      <Canvas 
+      <Canvas
         gl={{
           powerPreference: "high-performance",
           antialias: false,
@@ -28,11 +45,11 @@ function App() {
           depth: false
         }}
         shadowMap
-        style={{background: 'black'}} 
+        style={{background: 'black'}}
         camera={{ position: [7,7,7] }}
       >
-        <Suspense fallback={null}>
-          <Background />
+        <Suspense fallback={<Spinner />}>
+            <Background windowDimensions={windowDimensions} />
         </Suspense>
         <CameraControls />
         <Lights/>

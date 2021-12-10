@@ -1,13 +1,12 @@
 import { Suspense } from 'react'
 import BoundingBox from './BoundingBox'
 import Model from './Model'
-import Dragable from './Dragable'
-import * as THREE from 'three';
+import Draggable from './Draggable'
 
 const Cars = ({ }) => {
     return (
-        <Suspense fallback={null} >
-            <Dragable transformGroup>
+        <Suspense fallback={null}>
+            <Draggable transformGroup>
                 <BoundingBox
                     position={[4, 4, 0]}
                     dims={[3, 2, 6]}
@@ -18,8 +17,8 @@ const Cars = ({ }) => {
                         scale={new Array(3).fill(0.01)}
                     />
                 </BoundingBox>
-            </Dragable>
-            <Dragable transformGroup>
+            </Draggable>
+            <Draggable transformGroup>
                 <BoundingBox
                     position={[-4, 4, 0]}
                     dims={[3, 2, 7]}
@@ -30,25 +29,38 @@ const Cars = ({ }) => {
                         scale={new Array(3).fill(0.013)}
                     />
                 </BoundingBox>
-            </Dragable>
-            <Dragable transformGroup >
-                <Model
-                    path='/old_gramophone/scene.gltf'
-                    scale={new THREE.Vector3(.05, .05, .05)}
-                    position={[0, 0, 3]}
-                />
-            </Dragable>
-            <Dragable transformGroup>
+            </Draggable>
+            <Draggable transformGroup>
                 <BoundingBox
-                    dims={[3, 2, 6]}
+                    position={[-8, 0, 0]}
+                    dims={[3, 2, 7]}
+                    offset={[-4, -0.9, -0.4]}
                 >
                     <Model
-                        path='/spectral_rubix/scene.gltf'
-                        scale={new THREE.Vector3(.3, .3, .3)}
-                        position={[0, 1, -5]}
+                        path='/tesla_roadster_2020_interior/scene.gltf'
+                        scale={new Array(3).fill(2)}
                     />
                 </BoundingBox>
-            </Dragable>
+            </Draggable>
+
+            {/*<Draggable transformGroup >*/}
+            {/*    <Model*/}
+            {/*        path='/old_gramophone/scene.gltf'*/}
+            {/*        scale={new THREE.Vector3(.05, .05, .05)}*/}
+            {/*        position={[0, 0, 3]}*/}
+            {/*    />*/}
+            {/*</Draggable>*/}
+            {/*<Draggable transformGroup>*/}
+            {/*    <BoundingBox*/}
+            {/*        dims={[3, 2, 6]}*/}
+            {/*    >*/}
+            {/*        <Model*/}
+            {/*            path='/spectral_rubix/scene.gltf'*/}
+            {/*            scale={new THREE.Vector3(.3, .3, .3)}*/}
+            {/*            position={[0, 1, -5]}*/}
+            {/*        />*/}
+            {/*    </BoundingBox>*/}
+            {/*</Draggable>*/}
         </Suspense>
     )
 }
