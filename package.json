@@ -17,18 +17,29 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "node --max_old_space_size=8000 node_modules/.bin/react-scripts start",
+    "build": "node --max_old_space_size=8000 node_modules/.bin/react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "lint-fix": "eslint --fix"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
-      "react-app/jest"
-    ]
+      "plugin:jest/recommended"
+    ],
+    "plugins": [
+      "import",
+      "eslint-plugin-jest"
+    ],
+    "rules": {
+      "indent": [
+        "warn",
+        4
+      ]
+    }
   },
   "browserslist": {
     "production": [
@@ -43,6 +54,8 @@
     ]
   },
   "devDependencies": {
+    "eslint": "^7.11.0",
+    "eslint-plugin-import": "^2.25.3",
     "gh-pages": "^3.1.0"
   }
 }

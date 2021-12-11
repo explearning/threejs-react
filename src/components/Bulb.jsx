@@ -10,7 +10,7 @@ const Bulb = props => {
     }, [])
     return (
         <mesh {...props} ref={ref}>
-            <pointLight 
+            <pointLight
                 castShadow
                 shadow-mapSize-height={2**10}
                 shadow-mapSize-width={2**10}

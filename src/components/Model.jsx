@@ -1,6 +1,6 @@
 import { useLoader, useFrame } from 'react-three-fiber';
-import { 
-    GLTFLoader 
+import {
+    GLTFLoader
 } from 'three/examples/jsm/loaders/GLTFLoader';
 import * as THREE from 'three'
 // small change
@@ -32,9 +32,10 @@ const Model = props => {
     })
 
     return (
-        <primitive 
+        <primitive
             object={model.scene}
             scale={props.scale}
+            position={props.position}
         />
     )
 }
